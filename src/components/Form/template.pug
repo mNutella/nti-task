@@ -1,0 +1,27 @@
+form(@submit.prevent="handleSubmit")
+  v-card
+    v-card-text
+      v-text-field(
+        @input="handleInputChange"
+        :loading="loading"
+        :error-messages="searchFail"
+        flat
+        background-color="rgb(255, 230, 255)"
+        clearable
+        hide-details="auto"
+        label="Запрос"
+        prepend-inner-icon="search"
+        solo)
+      v-btn(color="primary" type="submit").mt-2 Поиск 👀
+    v-card-text
+      p.text-h6 Найдено {{result}}
+    v-card-text
+      p.text-h6 Кэш
+      v-card(elevation="1").card__list.px-4.py-2
+        template(v-if="cache.length")
+          p(v-for="(val, key) in cache" :key="val + key").accent.mb-2
+            | {{val}}
+        template(v-else)
+          p Пуст
+    v-card-actions
+      v-spacer

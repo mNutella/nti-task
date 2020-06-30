@@ -17,7 +17,6 @@ export default class App extends Vue {
       ["VALUE"]
     );
     this.$api.deleteAllRecords("USERS");
-
     /**
      * Third parameter count of rows by default it's 2000.
      * Indexing is slow.

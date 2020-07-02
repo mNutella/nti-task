@@ -7,8 +7,10 @@
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
 
+import { MVue } from "@types";
+
 @Component
-export default class App extends Vue {
+export default class App extends MVue {
   mounted() {
     this.$api.init(
       "USERS",

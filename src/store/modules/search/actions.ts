@@ -22,7 +22,8 @@ export const actions: ActionTree<SearchState, RootState> = {
   async searchInStorage({ commit, rootState }, api) {
     try {
       commit(RECEIVING_RESULT);
-      const { queriesCache, query } = rootState.search;
+      const searchState = rootState as any; // Hack
+      const { queriesCache, query } = searchState.search;
 
       if (!query) return commit(RECEIVED_RESULT, { query, count: 0 });
 

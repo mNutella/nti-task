@@ -1,10 +1,10 @@
-import Vue from "vue";
 import { State, Action, Getter } from "vuex-class";
 import { Component } from "vue-property-decorator";
 
 import { SearchState } from "@types";
 import Layout from "@layouts/Main/index.vue";
 import Form from "@components/Form/index.vue";
+import { MVue } from "@types";
 
 
 @Component({
@@ -13,7 +13,7 @@ import Form from "@components/Form/index.vue";
     Form
   }
 })
-export default class Home extends Vue {
+export default class Home extends MVue {
   @State("search") searchState!: SearchState;
   @Action("searchInStorage") search;
   @Action("typing") setCurrentQuery;
